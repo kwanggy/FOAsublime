@@ -1,0 +1,13 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+name: thomas ts
+scopeName: source.ts
+fileTypes: [ts]
+uuid: 38fe01a0-d327-420e-ba31-9b8343b58df4
+
+patterns:
+- name: keyword.other.ts
+  match: \b(Func|True|Swap|Howru|Whatup|Return|Bigboy)\b
+- name: storage.modifier.ts
+  match: \b(synchronized|private|dispatch|public|protected|native|package|static|volatile|abstract|transient|final)\b
+- name: storage.type.ts
+  match: \b(String|float|double|int)\b
