@@ -16,27 +16,11 @@ class SublimeFragment extends AbstractGeneratorFragment2{
                         
                         patterns:
                         «collectKeywordsAsRegex»
-                        «collectModifierAsRegex»
-                        «collectTypeAsRegex»
                 '''
                 
                 projectConfig.genericIdeSrc.generateFile(
                         "thomas.YAML-tmLanguage", configFile)
                 
-                /* 
-                val sublimeConfig = '''
-                        # [PackageDev] target_format: plist, ext: tmLanguage
-                        name: Sublime Snippet (Raw)
-                        scopeName: source.ssraw
-                        fileTypes: [ssraw]
-                        uuid: 6cbfa751-bc0e-4065-8fe7-38cbad674d9f
-                        
-                        patterns:
-                        - comment: Tab stops like $1, $2...
-                          name: keyword.other.ssraw
-                          match: «collectKeywordsAsRegEx»
-                '''
-                */
         }
         
         def collectKeywordsAsRegex() {
@@ -46,7 +30,7 @@ class SublimeFragment extends AbstractGeneratorFragment2{
                 	- name: keyword.other.«language.fileExtensions.head»
                 	  match: '''
                 
-                test.concat(keywords.filter[ matches('\\b(?!String)[A-Z]\\w+\\b') ].join(
+                test.concat(keywords.filter[ matches('\\b(\\w+\\b') ].join(
                         '\\b(', //before
                         '|', //separator
                         ')\\b' //after
@@ -55,34 +39,6 @@ class SublimeFragment extends AbstractGeneratorFragment2{
                 
                 
         }
-        def collectModifierAsRegex() {
-                val g = getGrammar
-                val keywords = GrammarUtil.getAllKeywords(g)
-                val test = '''
-                	- name: storage.modifier.«language.fileExtensions.head»
-                	  match: '''
-                
-                test.concat(keywords.filter[ matches('\\b(?!int|double|float)[a-z]\\w+\\b') ].join(
-                        '\\b(', //before
-                        '|', //separator
-                        ')\\b' //after
-                ) [it].toString)
-               
-                }
         
-        def collectTypeAsRegex() {
-                val g = getGrammar
-                val keywords = GrammarUtil.getAllKeywords(g)
-                val test = '''
-                	- name: storage.type.«language.fileExtensions.head»
-                	  match: '''
-                
-                test.concat(keywords.filter[ matches('\\b(int|String|double|float)\\b') ].join(
-                        '\\b(', //before
-                        '|', //separator
-                        ')\\b' //after
-                ) [it].toString)
-                
-                }
 	
 }

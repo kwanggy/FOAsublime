@@ -2,12 +2,9 @@
 name: thomas ts
 scopeName: source.ts
 fileTypes: [ts]
-uuid: 38fe01a0-d327-420e-ba31-9b8343b58df4
+uuid: cc7986ae-b8cd-405c-b2dd-cbb3d51002a4
 
 patterns:
 - name: keyword.other.ts
-  match: \b(Func|True|Swap|Howru|Whatup|Return|Bigboy)\b
-- name: storage.modifier.ts
-  match: \b(synchronized|private|dispatch|public|protected|native|package|static|volatile|abstract|transient|final)\b
-- name: storage.type.ts
-  match: \b(String|float|double|int)\b
+  match: \b(synchronized|private|dispatch|Func|True|String|float|Swap|public|protected|native|Howru|Whatup|Return|package|static|double|volatile|abstract|int|transient|final|Bigboy)\b
+
