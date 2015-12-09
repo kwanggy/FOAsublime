@@ -1,0 +1,9 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+name: thomas statemachine
+scopeName: source.statemachine
+fileTypes: [statemachine]
+uuid: 50eaf2bc-36f5-488d-8b0f-dda10b4baf31
+
+patterns:
+- name: keyword.other.statemachine
+  match: \b(else|if|end|state|signal|output|input|goto)\b

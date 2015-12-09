@@ -9,7 +9,8 @@ class GoogleAutocomplete(sublime_plugin.EventListener):
         offset = view.text_point(row,col)
         data = {'caretOffset': offset ,'fullText': content }
         data = urllib.urlencode(data)
-        url='http://localhost:8081/xtext-service/assist?resource=text.statemachine'
+        filename = str(view.file_name()).split("/")[-1]
+        url='http://localhost:8081/xtext-service/assist?resource='+filename
         response = urllib2.urlopen(url,data)
         response = json.loads(response.read())['entries']
         output = []
